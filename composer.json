@@ -1,0 +1,21 @@
+{
+  "name": "skp/api",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "Skp\\Api\\": "src/"
+    }
+  },
+  "config": {
+    "vendor-dir": "src/vendor"
+  },
+  "authors": [
+    {
+      "name": "Pavel Khatkevich",
+      "email": "pavel.khatkevich2000@gmail.com"
+    }
+  ],
+  "require": {
+    "symfony/uid": "^7.1"
+  }
+}

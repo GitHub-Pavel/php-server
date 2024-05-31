@@ -1,0 +1,11 @@
+version: "3.1"
+
+services:
+  php-nginx:
+    image: trafex/php-nginx
+    container_name: php-nginx
+    ports:
+      - 4321:8080
+    volumes:
+      - ./src:/var/www/html
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
