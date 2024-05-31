@@ -1,10 +1,10 @@
 <?php
 
-namespace SKP_API\Classes;
+namespace SKP_API\Errors;
 
 use JetBrains\PhpStorm\NoReturn;
 
-if ( !class_exists('\SKP_API\Classes\Error') ) {
+if ( !class_exists('\SKP_API\Errors\Error') ) {
     class Error {
         public int $code = 500;
         public string $message = 'Unknown error';
