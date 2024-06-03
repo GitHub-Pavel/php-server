@@ -10,11 +10,13 @@ if ( !function_exists('set_public') ) {
     {
         return function(Request $request, Response $response): void
         {
-            if ( !is_dir( Files_System::getPath(PUBLIC_FOLDER) ) ) {
-                mkdir( Files_System::getPath(PUBLIC_FOLDER) );
+            $info = pathinfo($request->location->pathname);
+
+            if ( !is_dir( Files_System::get_path(PUBLIC_FOLDER) ) ) {
+                mkdir( Files_System::get_path(PUBLIC_FOLDER) );
             }
 
-            if ( $request->method !== 'GET' || is_api($request) ) {
+            if ( $request->method !== 'GET' || is_api($request) || !array_key_exists('extension', $info) ) {
                 return;
             }
 

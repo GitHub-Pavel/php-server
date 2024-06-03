@@ -11,11 +11,19 @@
   },
   "authors": [
     {
-      "name": "Pavel Khatkevich",
-      "email": "pavel.khatkevich2000@gmail.com"
+      "name": "Pavel K.",
+      "email": "pkhatkevich@gmail.com"
     }
   ],
   "require": {
-    "symfony/uid": "^7.1"
+    "ext-pdo": "*",
+    "symfony/uid": "^7.1",
+    "ext-fileinfo": "*",
+    "zircote/swagger-php": "^4.9",
+    "doctrine/annotations": "^2.0",
+    "doctrine/orm": "^2.19.5"
+  },
+  "require-dev": {
+    "symfony/symfony": "*"
   }
 }

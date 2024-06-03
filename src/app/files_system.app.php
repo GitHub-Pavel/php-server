@@ -8,21 +8,23 @@ if ( !class_exists('\SKP_API\Files_System') ) {
 
         public function pin($path): static
         {
-            $this->pined = Files_System::getPath($path);
+            $this->pined = self::get_path($path);
             return $this;
         }
 
         public function scan(): array
         {
             $files = scandir($this->pined);
-            $callback = fn($file) => $this->pined . DIRECTORY_SEPARATOR . $file;
-
-            return array_map($callback, array_slice($files, 2));
+            return array_slice($files, 2);
         }
 
-        static function getPath($path): string
+        static function get_path(...$args): string
         {
-            return API_DIR . DIRECTORY_SEPARATOR . $path;
+            if ( str_contains($args[0], API_DIR) ) {
+                return implode(DIRECTORY_SEPARATOR, $args);
+            }
+
+            return API_DIR . DIRECTORY_SEPARATOR . implode(DIRECTORY_SEPARATOR, $args);
         }
 
         static function include($file): bool

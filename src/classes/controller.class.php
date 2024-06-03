@@ -8,7 +8,7 @@ if ( !class_exists('\SKP_API\Classes\Controller') ) {
         private string $controller_url = '';
         private array $entities = [];
 
-        private function addEntity(string $url, Callable $callback, string $method): void
+        private function add_entity(string $url, Callable $callback, string $method): void
         {
             $this->entities[$this->controller_url . $url] = [
                 'callback' => $callback,
@@ -16,7 +16,7 @@ if ( !class_exists('\SKP_API\Classes\Controller') ) {
             ];
         }
 
-        public function getEntity(string $url): mixed
+        public function get_entity(string $url): mixed
         {
             if ( isset($this->entities[$url]) ) {
                 return $this->entities[$url];
@@ -27,21 +27,21 @@ if ( !class_exists('\SKP_API\Classes\Controller') ) {
 
         public function POST(string $url, Callable $callback): void
         {
-            $this->addEntity($url, $callback, 'POST');
+            $this->add_entity($url, $callback, 'POST');
         }
 
         public function GET(string $url, Callable $callback): void
         {
-            $this->addEntity($url, $callback, 'GET');
+            $this->add_entity($url, $callback, 'GET');
         }
 
-        public function setUrl (string $controller_url): static
+        public function set_url (string $controller_url): static
         {
             $this->controller_url = $controller_url;
             return $this;
         }
 
-        public function getUrl (): string {
+        public function get_url (): string {
             return $this->controller_url;
         }
     }

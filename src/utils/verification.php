@@ -8,7 +8,7 @@ if ( !function_exists('is_api') ) {
         $pathname = $request->location->pathname;
         $pathname_slices = array_slice(explode('/', $pathname), 1);
 
-        if ('/'.$pathname_slices[0] === API_URL) {
+        if ('/'. implode('/', array_slice($pathname_slices, 0, 2)) === API_URL) {
             return true;
         }
 

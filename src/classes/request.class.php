@@ -46,10 +46,10 @@ if ( !class_exists('\SKP_API\Classes\Request') ) {
             $this->method = $_SERVER['REQUEST_METHOD'];
             $this->location = new Location();
             $this->headers = new Headers();
-            $this->body = $this->getBody();
+            $this->body = $this->get_body();
         }
 
-        private function getBody(): array
+        private function get_body(): array
         {
             if ( $this->method === 'GET' ) {
                 return [];
